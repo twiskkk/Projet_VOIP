@@ -1,5 +1,6 @@
 import pyaudio
 
+<<<<<<< HEAD
 class VOIP():
 
     def __init__(self, CHANNELS : int, RATE : int, CHUNK : int, RECORD_SECONDS : int)
@@ -15,16 +16,35 @@ audio = pyaudio.PyAudio()
 # Debut enregistrement
 stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
 print ("Enregistrement en cours...")
+=======
+class VOIP:
+    def __init__(self):
+        pass
+>>>>>>> f48abc311f870d9e55573a8c96c25c8762336301
 
-frames = []
-  
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-    data = stream.read(CHUNK)
-    frames.append(data)  
-print ("Fin d'enregistrement")
 
-stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, output=True)
-for data in frames:
-    stream.write(data)
+if __name__ == "__main__":
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 1
+    RATE = 44100
+    CHUNK = 1024
+    RECORD_SECONDS = 5
+    
+    audio = pyaudio.PyAudio()
+    
+    # Debut enregistrement
+    stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
+    print ("Enregistrement en cours...")
 
-print ("Fin ")
+    frames = []
+    
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)  
+    print ("Fin d'enregistrement")
+
+    stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, output=True)
+    for data in frames:
+        stream.write(data)
+
+    print ("Fin ")
