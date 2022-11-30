@@ -2,7 +2,7 @@ import pyaudio
 
 class VOIP():
 
-    def __init__(self, CHANNELS : int, RATE : int, CHUNK : int, RECORD_SECONDS : int)
+    def __init__(self, CHANNELS : int, RATE : int, CHUNK : int, RECORD_SECONDS : int):
 
         self.__FORMAT = pyaudio.paInt16
         self.__CHANNELS = CHANNELS
@@ -15,7 +15,7 @@ audio = pyaudio.PyAudio()
 # Debut enregistrement
 stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
 print ("Enregistrement en cours...")
-
+    
 
 
 
