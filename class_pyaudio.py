@@ -24,4 +24,3 @@ for data in frames:
     stream.write(data)
 
 print ("Fin ")
-
