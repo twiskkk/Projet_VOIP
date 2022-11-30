@@ -1,10 +1,14 @@
 import pyaudio
 
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 44100
-CHUNK = 1024
-RECORD_SECONDS = 5
+class VOIP():
+
+    def __init__(self, CHANNELS : int, RATE : int, CHUNK : int, RECORD_SECONDS : int)
+
+        self.__FORMAT = pyaudio.paInt16
+        self.__CHANNELS = CHANNELS
+        self.__RATE = RATE
+        self.__CHUNK = CHUNK
+        self.__RECORD_SECONDS = RECORD_SECONDS
   
 audio = pyaudio.PyAudio()
   
